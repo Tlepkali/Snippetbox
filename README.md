@@ -1,0 +1,2 @@
+# Snippetbox
+Snippetbox application
