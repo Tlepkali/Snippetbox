@@ -1,0 +1,19 @@
+ERROR	2023/01/10 03:38:24 main.go:47: unable to open database file: no such file or directory
+tory
+goroutine 6 [running]:
+runtime/debug.Stack()
+	/usr/local/go/src/runtime/debug/stack.go:24 +0x65
+main.(*application).serverError(0xc000016cd0, {0x801c60, 0xc0001700e0}, {0x7ff880?, 0xc00002f290?})
+	/home/student/snippetbox/cmd/web/helpers.go:10 +0x58
+main.(*application).home(0x47bb46?, {0x801c60?, 0xc0001700e0}, 0x4e8489?)
+	/home/student/snippetbox/cmd/web/handlers.go:24 +0x14e
+net/http.HandlerFunc.ServeHTTP(0xc00011baf0?, {0x801c60?, 0xc0001700e0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x801c60, 0xc0001700e0}, 0xc00016c000)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+net/http.serverHandler.ServeHTTP({0xc00002f170?}, {0x801c60, 0xc0001700e0}, 0xc00016c000)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc000000fa0, {0x8020c0, 0xc00002f080})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
