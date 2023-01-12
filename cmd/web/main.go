@@ -3,11 +3,12 @@ package main
 import (
 	"database/sql"
 	"flag"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/Tlepkali/Snippetbox/pkg/models/sqlite"
+	"github.com/Tlepkali/snippetbox/pkg/models/sqlite"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -18,9 +19,10 @@ type Config struct {
 }
 
 type application struct {
-	errorLog *log.Logger
-	infoLog  *log.Logger
-	snippets *sqlite.SnippetModel
+	errorLog      *log.Logger
+	infoLog       *log.Logger
+	snippets      *sqlite.SnippetModel
+	templateCache map[string]*template.Template
 }
 
 func main() {
@@ -28,7 +30,7 @@ func main() {
 	flag.StringVar(&cfg.Addr, "addr", ":4000", "HTTP network address")
 	flag.StringVar(&cfg.StaticDir, "static-dir", "./ui/static", "Path to static assets")
 	flag.Parse()
-	dsn := flag.String("dsn", "db/snippetbox.sql?parseTime=true", "Sql Database connection")
+	dsn := flag.String("dsn", "db/snippetbox?parseTime=true", "Sql Database connection")
 
 	infoF, err := os.OpenFile("logs/info.log", os.O_RDWR|os.O_CREATE, 0o666)
 	if err != nil {
@@ -52,10 +54,16 @@ func main() {
 
 	defer db.Close()
 
+	templateCache, err := newTemplateCache("./ui/html/")
+	if err != nil {
+		errorLog.Fatal(err)
+	}
+
 	app := &application{
-		errorLog: errorLog,
-		infoLog:  infoLog,
-		snippets: &sqlite.SnippetModel{DB: db},
+		errorLog:      errorLog,
+		infoLog:       infoLog,
+		snippets:      &sqlite.SnippetModel{DB: db},
+		templateCache: templateCache,
 	}
 
 	srv := &http.Server{

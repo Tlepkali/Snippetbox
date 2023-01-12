@@ -1,19 +1,281 @@
-ERROR	2023/01/10 03:38:24 main.go:47: unable to open database file: no such file or directory
-tory
-goroutine 6 [running]:
+ERROR	2023/01/12 20:57:27 helpers.go:30: template: create.page.tmpl:27:61: executing "body" at <eq $exp 365>: error calling eq: incompatible types for comparison
+goroutine 29 [running]:
 runtime/debug.Stack()
 	/usr/local/go/src/runtime/debug/stack.go:24 +0x65
-main.(*application).serverError(0xc000016cd0, {0x801c60, 0xc0001700e0}, {0x7ff880?, 0xc00002f290?})
-	/home/student/snippetbox/cmd/web/helpers.go:10 +0x58
-main.(*application).home(0x47bb46?, {0x801c60?, 0xc0001700e0}, 0x4e8489?)
-	/home/student/snippetbox/cmd/web/handlers.go:24 +0x14e
-net/http.HandlerFunc.ServeHTTP(0xc00011baf0?, {0x801c60?, 0xc0001700e0?}, 0x0?)
+main.(*application).serverError(0xc0001368e0, {0x91c7d8, 0xc0001b6000}, {0x91b0e0?, 0xc000136b40?})
+	/home/student/snippetbox/cmd/web/helpers.go:38 +0x58
+main.(*application).render(0xc0001368e0, {0x91c7d8?, 0xc0001b6000}, 0x0?, {0x883fe3, 0x10}, 0x41b5ba?)
+	/home/student/snippetbox/cmd/web/helpers.go:30 +0xe5
+main.(*application).createSnippetForm(0xc000125750?, {0x91c7d8?, 0xc0001b6000?}, 0x8?)
+	/home/student/snippetbox/cmd/web/handlers.go:53 +0x33
+net/http.HandlerFunc.ServeHTTP(0xc000196480?, {0x91c7d8?, 0xc0001b6000?}, 0x3?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.(*ServeMux).ServeHTTP(0x0?, {0x801c60, 0xc0001700e0}, 0xc00016c000)
-	/usr/local/go/src/net/http/server.go:2487 +0x149
-net/http.serverHandler.ServeHTTP({0xc00002f170?}, {0x801c60, 0xc0001700e0}, 0xc00016c000)
+github.com/bmizerany/pat.(*PatternServeMux).ServeHTTP(0xc00010a660, {0x91c7d8, 0xc0001b6000}, 0xc000180300)
+	/home/student/go/pkg/mod/github.com/bmizerany/pat@v0.0.0-20210406213842-e4b6760bdd6f/mux.go:117 +0x1ae
+main.secureHeaders.func1({0x91c7d8, 0xc0001b6000}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:35 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0001380f0?, {0x91c7d8?, 0xc0001b6000?}, 0xc0001259c8?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x91c7d8, 0xc0001b6000}, 0xc000180300)
+	/home/student/snippetbox/cmd/web/middleware.go:26 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91c7d8?, 0xc0001b6000?}, 0xffffffffffffffff?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).recoverPanic.func1({0x91c7d8?, 0xc0001b6000?}, 0x7f1126c01170?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x93
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91c7d8?, 0xc0001b6000?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc000196870?}, {0x91c7d8, 0xc0001b6000}, 0xc000180300)
 	/usr/local/go/src/net/http/server.go:2947 +0x30c
-net/http.(*conn).serve(0xc000000fa0, {0x8020c0, 0xc00002f080})
+net/http.(*conn).serve(0xc00011afa0, {0x91cc40, 0xc000196780})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+et/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc0001840e0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc0001840e0?}, 0xc000050a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc0001840e0}, 0xc000114300)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc0001840e0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00011d230?}, {0x918bf8, 0xc0001840e0}, 0xc000114300)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0000af0e0, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34130: oops! something went wrong
+goroutine 35 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc0001842a0?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc000196110?, {0x918bf8?, 0xc0001842a0?}, 0xc000050958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc0001842a0}, 0xc0001c8000)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc0001842a0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc0001842a0?}, 0xc000050a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc0001842a0}, 0xc0001c8000)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc0001842a0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc000186120?}, {0x918bf8, 0xc0001842a0}, 0xc0001c8000)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001bc000, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34132: oops! something went wrong
+goroutine 37 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc000184460?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc0001961b0?, {0x918bf8?, 0xc000184460?}, 0xc000050958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc000184460}, 0xc0001c8100)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc000184460}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc000184460?}, 0xc000050a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc000184460}, 0xc0001c8100)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc000184460?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc000186270?}, {0x918bf8, 0xc000184460}, 0xc0001c8100)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001bc0a0, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34134: oops! something went wrong
+goroutine 39 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc000184620?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc000196250?, {0x918bf8?, 0xc000184620?}, 0xc000050958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc000184620}, 0xc0001c8200)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc000184620}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc000184620?}, 0xc000050a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc000184620}, 0xc0001c8200)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc000184620?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc0001863c0?}, {0x918bf8, 0xc000184620}, 0xc0001c8200)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001bc140, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34136: oops! something went wrong
+goroutine 5 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc00013c2a0?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc000099650?, {0x918bf8?, 0xc00013c2a0?}, 0xc000051958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc00013c2a0}, 0xc000114400)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc00013c2a0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc00013c2a0?}, 0xc000051a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc00013c2a0}, 0xc000114400)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc00013c2a0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00011d290?}, {0x918bf8, 0xc00013c2a0}, 0xc000114400)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0000000a0, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34138: oops! something went wrong
+goroutine 6 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc00007e0e0?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc0000160c0?, {0x918bf8?, 0xc00007e0e0?}, 0xc000055958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc00007e0e0}, 0xc00007a000)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc00007e0e0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc00007e0e0?}, 0xc000055a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc00007e0e0}, 0xc00007a000)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc00007e0e0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00002e120?}, {0x918bf8, 0xc00007e0e0}, 0xc00007a000)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc000000140, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34140: oops! something went wrong
+goroutine 41 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc00007e2a0?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc000016160?, {0x918bf8?, 0xc00007e2a0?}, 0xc000055958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc00007e2a0}, 0xc00007a100)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc00007e2a0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc00007e2a0?}, 0xc000055a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc00007e2a0}, 0xc00007a100)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc00007e2a0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00002e240?}, {0x918bf8, 0xc00007e2a0}, 0xc00007a100)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001bc1e0, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34142: oops! something went wrong
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc0001847e0?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc0001962f0?, {0x918bf8?, 0xc0001847e0?}, 0xc000050958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc0001847e0}, 0xc0001c8300)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc0001847e0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc0001847e0?}, 0xc000050a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc0001847e0}, 0xc0001c8300)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc0001847e0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc000186510?}, {0x918bf8, 0xc0001847e0}, 0xc0001c8300)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0000001e0, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34144: oops! something went wrong
+goroutine 43 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc00007e460?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc000016200?, {0x918bf8?, 0xc00007e460?}, 0xc000055958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc00007e460}, 0xc00007a200)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc00007e460}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc00007e460?}, 0xc000055a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc00007e460}, 0xc00007a200)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc00007e460?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00002e390?}, {0x918bf8, 0xc00007e460}, 0xc00007a200)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0001bc280, {0x919060, 0xc00011cf90})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+ERROR	2023/01/12 17:56:56 server.go:3228: http: panic serving 127.0.0.1:34146: oops! something went wrong
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1850 +0xbf
+panic({0x8121e0, 0x915320})
+	/usr/local/go/src/runtime/panic.go:890 +0x262
+main.(*application).home(0x415ebf?, {0x918bf8?, 0xc00007e540?}, 0x0?)
+	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+net/http.HandlerFunc.ServeHTTP(0xc0000162a0?, {0x918bf8?, 0xc00007e540?}, 0xc000055958?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc00007e540}, 0xc00007a300)
+	/usr/local/go/src/net/http/server.go:2487 +0x149
+main.secureHeaders.func1({0x918bf8, 0xc00007e540}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc00007e540?}, 0xc000055a50?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x918bf8, 0xc00007e540}, 0xc00007a300)
+	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc00007e540?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00002e4e0?}, {0x918bf8, 0xc00007e540}, 0xc00007a300)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc000000280, {0x919060, 0xc00011cf90})
 	/usr/local/go/src/net/http/server.go:1991 +0x607
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:3102 +0x4db
