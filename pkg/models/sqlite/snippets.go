@@ -11,8 +11,17 @@ type SnippetModel struct {
 }
 
 func (m *SnippetModel) Insert(title, content, expires string) (int, error) {
-	stmt := `INSERT INTO snippets (title, content, created, expires)
-	VALUES(?, ?, CURRENT_TIMESTAMP, ?)`
+	var stmt string
+	if expires == "1" {
+		stmt = `INSERT INTO snippets (title, content, created, expires)
+		VALUES(?, ?, CURRENT_TIMESTAMP, DATE(CURRENT_TIMESTAMP, '+1 DAY'))`
+	} else if expires == "7" {
+		stmt = `INSERT INTO snippets (title, content, created, expires)
+		VALUES(?, ?, CURRENT_TIMESTAMP, DATE(CURRENT_TIMESTAMP, '+7 DAYS'))`
+	} else {
+		stmt = `INSERT INTO snippets (title, content, created, expires)
+		VALUES(?, ?, CURRENT_TIMESTAMP, DATE(CURRENT_TIMESTAMP, '+1 YEAR'))`
+	}
 
 	result, err := m.DB.Exec(stmt, title, content, expires)
 	if err != nil {

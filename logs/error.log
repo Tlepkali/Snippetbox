@@ -1,110 +1,98 @@
-ERROR	2023/01/12 20:57:27 helpers.go:30: template: create.page.tmpl:27:61: executing "body" at <eq $exp 365>: error calling eq: incompatible types for comparison
-goroutine 29 [running]:
+ERROR	2023/01/13 21:39:54 server.go:3228: http: TLS handshake error from 127.0.0.1:43302: remote error: tls: bad certificate
+(handlers.go:86)
+ERROR	2023/01/13 18:42:28 server.go:3228: http: superfluous response.WriteHeader call from main.(*application).createSnippet (handlers.go:86)
+ERROR	2023/01/13 18:42:39 server.go:3228: http: superfluous response.WriteHeader call from main.(*application).createSnippet (handlers.go:86)
+ation).render(0xc0000ca8e0, {0x91e078?, 0xc0002160e0}, 0x7fcfc8d03fff?, {0x885490, 0x10}, 0x0?)
+	/home/student/snippetbox/cmd/web/helpers.go:30 +0xe5
+main.(*application).createSnippetForm(0x7fcfc6131538?, {0x91e078, 0xc0002160e0}, 0xc0000c57a8?)
+	/home/student/snippetbox/cmd/web/handlers.go:52 +0xc5
+net/http.HandlerFunc.ServeHTTP(0xc000128510?, {0x91e078?, 0xc0002160e0?}, 0x3?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/bmizerany/pat.(*PatternServeMux).ServeHTTP(0xc0000a2678, {0x91e078, 0xc0002160e0}, 0xc000112900)
+	/home/student/go/pkg/mod/github.com/bmizerany/pat@v0.0.0-20210406213842-e4b6760bdd6f/mux.go:117 +0x1ae
+main.secureHeaders.func1({0x91e078, 0xc0002160e0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:35 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x91e078?, 0xc0002160e0?}, 0xc0000c59c8?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).logRequest.func1({0x91e078, 0xc0002160e0}, 0xc000112900)
+	/home/student/snippetbox/cmd/web/middleware.go:26 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc0002160e0?}, 0xffffffffffffffff?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).recoverPanic.func1({0x91e078?, 0xc0002160e0?}, 0x7fcfc6131978?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x93
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc0002160e0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc000128960?}, {0x91e078, 0xc0002160e0}, 0xc000112900)
+	/usr/local/go/src/net/http/server.go:2947 +0x30c
+net/http.(*conn).serve(0xc0000aefa0, {0x91e4e0, 0xc000128870})
+	/usr/local/go/src/net/http/server.go:1991 +0x607
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3102 +0x4db
+:06 helpers.go:30: template: create.page.tmpl:13:58: executing "body" at <.FormData.Get>: can't evaluate field FormData in type *forms.Form
+goroutine 26 [running]:
 runtime/debug.Stack()
 	/usr/local/go/src/runtime/debug/stack.go:24 +0x65
-main.(*application).serverError(0xc0001368e0, {0x91c7d8, 0xc0001b6000}, {0x91b0e0?, 0xc000136b40?})
+main.(*application).serverError(0xc00009a440, {0x91e078, 0xc00015c000}, {0x91c980?, 0xc000060500?})
 	/home/student/snippetbox/cmd/web/helpers.go:38 +0x58
-main.(*application).render(0xc0001368e0, {0x91c7d8?, 0xc0001b6000}, 0x0?, {0x883fe3, 0x10}, 0x41b5ba?)
+main.(*application).render(0xc00009a440, {0x91e078?, 0xc00015c000}, 0x1?, {0x885487, 0x10}, 0x0?)
 	/home/student/snippetbox/cmd/web/helpers.go:30 +0xe5
-main.(*application).createSnippetForm(0xc000125750?, {0x91c7d8?, 0xc0001b6000?}, 0x8?)
-	/home/student/snippetbox/cmd/web/handlers.go:53 +0x33
-net/http.HandlerFunc.ServeHTTP(0xc000196480?, {0x91c7d8?, 0xc0001b6000?}, 0x3?)
+main.(*application).createSnippetForm(0xc000117750?, {0x91e078, 0xc00015c000}, 0x8?)
+	/home/student/snippetbox/cmd/web/handlers.go:52 +0xc5
+net/http.HandlerFunc.ServeHTTP(0xc0000cca20?, {0x91e078?, 0xc00015c000?}, 0x3?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-github.com/bmizerany/pat.(*PatternServeMux).ServeHTTP(0xc00010a660, {0x91c7d8, 0xc0001b6000}, 0xc000180300)
+github.com/bmizerany/pat.(*PatternServeMux).ServeHTTP(0xc000094480, {0x91e078, 0xc00015c000}, 0xc000268000)
 	/home/student/go/pkg/mod/github.com/bmizerany/pat@v0.0.0-20210406213842-e4b6760bdd6f/mux.go:117 +0x1ae
-main.secureHeaders.func1({0x91c7d8, 0xc0001b6000}, 0x4?)
+main.secureHeaders.func1({0x91e078, 0xc00015c000}, 0x4?)
 	/home/student/snippetbox/cmd/web/middleware.go:35 +0x19b
-net/http.HandlerFunc.ServeHTTP(0xc0001380f0?, {0x91c7d8?, 0xc0001b6000?}, 0xc0001259c8?)
+net/http.HandlerFunc.ServeHTTP(0xc000076140?, {0x91e078?, 0xc00015c000?}, 0xc0001179c8?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-main.(*application).logRequest.func1({0x91c7d8, 0xc0001b6000}, 0xc000180300)
+main.(*application).logRequest.func1({0x91e078, 0xc00015c000}, 0xc000268000)
 	/home/student/snippetbox/cmd/web/middleware.go:26 +0x170
-net/http.HandlerFunc.ServeHTTP(0x0?, {0x91c7d8?, 0xc0001b6000?}, 0xffffffffffffffff?)
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc00015c000?}, 0xffffffffffffffff?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-main.(*application).recoverPanic.func1({0x91c7d8?, 0xc0001b6000?}, 0x7f1126c01170?)
+main.(*application).recoverPanic.func1({0x91e078?, 0xc00015c000?}, 0x7f0a9fd1b228?)
 	/home/student/snippetbox/cmd/web/middleware.go:18 +0x93
-net/http.HandlerFunc.ServeHTTP(0x0?, {0x91c7d8?, 0xc0001b6000?}, 0x46bcae?)
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc00015c000?}, 0x46bcae?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.serverHandler.ServeHTTP({0xc000196870?}, {0x91c7d8, 0xc0001b6000}, 0xc000180300)
+net/http.serverHandler.ServeHTTP({0xc0000cce10?}, {0x91e078, 0xc00015c000}, 0xc000268000)
 	/usr/local/go/src/net/http/server.go:2947 +0x30c
-net/http.(*conn).serve(0xc00011afa0, {0x91cc40, 0xc000196780})
+net/http.(*conn).serve(0xc0000ec000, {0x91e4e0, 0xc0000ccd20})
 	/usr/local/go/src/net/http/server.go:1991 +0x607
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:3102 +0x4db
-et/http/server.go:2487 +0x149
-main.secureHeaders.func1({0x918bf8, 0xc0001840e0}, 0x4?)
-	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
-net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc0001840e0?}, 0xc000050a50?)
+ERROR	2023/01/13 18:39:13 helpers.go:30: template: create.page.tmpl:13:58: executing "body" at <.FormData.Get>: can't evaluate field FormData in type *forms.Form
+goroutine 9 [running]:
+runtime/debug.Stack()
+	/usr/local/go/src/runtime/debug/stack.go:24 +0x65
+main.(*application).serverError(0xc00009a440, {0x91e078, 0xc00015c0e0}, {0x91c980?, 0xc000060580?})
+	/home/student/snippetbox/cmd/web/helpers.go:38 +0x58
+main.(*application).render(0xc00009a440, {0x91e078?, 0xc00015c0e0}, 0x1?, {0x885487, 0x10}, 0x0?)
+	/home/student/snippetbox/cmd/web/helpers.go:30 +0xe5
+main.(*application).createSnippetForm(0xc000055750?, {0x91e078, 0xc00015c0e0}, 0x8?)
+	/home/student/snippetbox/cmd/web/handlers.go:52 +0xc5
+net/http.HandlerFunc.ServeHTTP(0xc0000cca20?, {0x91e078?, 0xc00015c0e0?}, 0x3?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-main.(*application).logRequest.func1({0x918bf8, 0xc0001840e0}, 0xc000114300)
-	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
-net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc0001840e0?}, 0x46bcae?)
+github.com/bmizerany/pat.(*PatternServeMux).ServeHTTP(0xc000094480, {0x91e078, 0xc00015c0e0}, 0xc000158200)
+	/home/student/go/pkg/mod/github.com/bmizerany/pat@v0.0.0-20210406213842-e4b6760bdd6f/mux.go:117 +0x1ae
+main.secureHeaders.func1({0x91e078, 0xc00015c0e0}, 0x4?)
+	/home/student/snippetbox/cmd/web/middleware.go:35 +0x19b
+net/http.HandlerFunc.ServeHTTP(0xc000076140?, {0x91e078?, 0xc00015c0e0?}, 0xc0000559c8?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.serverHandler.ServeHTTP({0xc00011d230?}, {0x918bf8, 0xc0001840e0}, 0xc000114300)
+main.(*application).logRequest.func1({0x91e078, 0xc00015c0e0}, 0xc000158200)
+	/home/student/snippetbox/cmd/web/middleware.go:26 +0x170
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc00015c0e0?}, 0xffffffffffffffff?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+main.(*application).recoverPanic.func1({0x91e078?, 0xc00015c0e0?}, 0x7f0a9fd1b228?)
+	/home/student/snippetbox/cmd/web/middleware.go:18 +0x93
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x91e078?, 0xc00015c0e0?}, 0x46bcae?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+net/http.serverHandler.ServeHTTP({0xc00002fe00?}, {0x91e078, 0xc00015c0e0}, 0xc000158200)
 	/usr/local/go/src/net/http/server.go:2947 +0x30c
-net/http.(*conn).serve(0xc0000af0e0, {0x919060, 0xc00011cf90})
+net/http.(*conn).serve(0xc0000010e0, {0x91e4e0, 0xc0000ccd20})
 	/usr/local/go/src/net/http/server.go:1991 +0x607
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:3102 +0x4db
-ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34130: oops! something went wrong
-goroutine 35 [running]:
-net/http.(*conn).serve.func1()
-	/usr/local/go/src/net/http/server.go:1850 +0xbf
-panic({0x8121e0, 0x915320})
-	/usr/local/go/src/runtime/panic.go:890 +0x262
-main.(*application).home(0x415ebf?, {0x918bf8?, 0xc0001842a0?}, 0x0?)
-	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
-net/http.HandlerFunc.ServeHTTP(0xc000196110?, {0x918bf8?, 0xc0001842a0?}, 0xc000050958?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc0001842a0}, 0xc0001c8000)
-	/usr/local/go/src/net/http/server.go:2487 +0x149
-main.secureHeaders.func1({0x918bf8, 0xc0001842a0}, 0x4?)
-	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
-net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc0001842a0?}, 0xc000050a50?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-main.(*application).logRequest.func1({0x918bf8, 0xc0001842a0}, 0xc0001c8000)
-	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
-net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc0001842a0?}, 0x46bcae?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.serverHandler.ServeHTTP({0xc000186120?}, {0x918bf8, 0xc0001842a0}, 0xc0001c8000)
-	/usr/local/go/src/net/http/server.go:2947 +0x30c
-net/http.(*conn).serve(0xc0001bc000, {0x919060, 0xc00011cf90})
-	/usr/local/go/src/net/http/server.go:1991 +0x607
-created by net/http.(*Server).Serve
-	/usr/local/go/src/net/http/server.go:3102 +0x4db
-ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34132: oops! something went wrong
-goroutine 37 [running]:
-net/http.(*conn).serve.func1()
-	/usr/local/go/src/net/http/server.go:1850 +0xbf
-panic({0x8121e0, 0x915320})
-	/usr/local/go/src/runtime/panic.go:890 +0x262
-main.(*application).home(0x415ebf?, {0x918bf8?, 0xc000184460?}, 0x0?)
-	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
-net/http.HandlerFunc.ServeHTTP(0xc0001961b0?, {0x918bf8?, 0xc000184460?}, 0xc000050958?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc000184460}, 0xc0001c8100)
-	/usr/local/go/src/net/http/server.go:2487 +0x149
-main.secureHeaders.func1({0x918bf8, 0xc000184460}, 0x4?)
-	/home/student/snippetbox/cmd/web/middleware.go:18 +0x19b
-net/http.HandlerFunc.ServeHTTP(0xc0000cc0f0?, {0x918bf8?, 0xc000184460?}, 0xc000050a50?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-main.(*application).logRequest.func1({0x918bf8, 0xc000184460}, 0xc0001c8100)
-	/home/student/snippetbox/cmd/web/middleware.go:9 +0x170
-net/http.HandlerFunc.ServeHTTP(0x0?, {0x918bf8?, 0xc000184460?}, 0x46bcae?)
-	/usr/local/go/src/net/http/server.go:2109 +0x2f
-net/http.serverHandler.ServeHTTP({0xc000186270?}, {0x918bf8, 0xc000184460}, 0xc0001c8100)
-	/usr/local/go/src/net/http/server.go:2947 +0x30c
-net/http.(*conn).serve(0xc0001bc0a0, {0x919060, 0xc00011cf90})
-	/usr/local/go/src/net/http/server.go:1991 +0x607
-created by net/http.(*Server).Serve
-	/usr/local/go/src/net/http/server.go:3102 +0x4db
-ERROR	2023/01/12 17:56:14 server.go:3228: http: panic serving 127.0.0.1:34134: oops! something went wrong
-goroutine 39 [running]:
-net/http.(*conn).serve.func1()
-	/usr/local/go/src/net/http/server.go:1850 +0xbf
-panic({0x8121e0, 0x915320})
-	/usr/local/go/src/runtime/panic.go:890 +0x262
-main.(*application).home(0x415ebf?, {0x918bf8?, 0xc000184620?}, 0x0?)
-	/home/student/snippetbox/cmd/web/handlers.go:17 +0x5a
+.go:17 +0x5a
 net/http.HandlerFunc.ServeHTTP(0xc000196250?, {0x918bf8?, 0xc000184620?}, 0xc000050958?)
 	/usr/local/go/src/net/http/server.go:2109 +0x2f
 net/http.(*ServeMux).ServeHTTP(0x853140?, {0x918bf8, 0xc000184620}, 0xc0001c8200)
