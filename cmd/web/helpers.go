@@ -6,14 +6,27 @@ import (
 	"net/http"
 	"runtime/debug"
 	"time"
+
+	"github.com/Tlepkali/snippetbox/pkg/models"
+	"github.com/justinas/nosurf"
 )
+
+func (app *application) authenticatedUser(r *http.Request) *models.User {
+	user, ok := r.Context().Value(contextKeyUser).(*models.User)
+	if !ok {
+		return nil
+	}
+	return user
+}
 
 func (app *application) addDefaultData(td *templateData, r *http.Request) *templateData {
 	if td == nil {
 		td = &templateData{}
 	}
-	td.CurrentYear = time.Now().Year()
 
+	td.CSRFToken = nosurf.Token(r)
+	td.AuthenticatedUser = app.authenticatedUser(r)
+	td.CurrentYear = time.Now().Year()
 	td.Flash = app.session.PopString(r, "flash")
 	return td
 }

@@ -10,6 +10,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/Tlepkali/snippetbox/pkg/models"
 	"github.com/Tlepkali/snippetbox/pkg/models/sqlite"
 	"github.com/golangcollege/sessions"
 
@@ -21,12 +22,25 @@ type Config struct {
 	StaticDir string
 }
 
+type contextKey string
+
+var contextKeyUser = contextKey("user")
+
 type application struct {
-	errorLog      *log.Logger
-	infoLog       *log.Logger
-	session       *sessions.Session
-	snippets      *sqlite.SnippetModel
+	errorLog *log.Logger
+	infoLog  *log.Logger
+	session  *sessions.Session
+	snippets interface {
+		Insert(string, string, string) (int, error)
+		Get(int) (*models.Snippet, error)
+		Latest() ([]*models.Snippet, error)
+	}
 	templateCache map[string]*template.Template
+	users         interface {
+		Insert(string, string, string) error
+		Authenticate(string, string) (int, error)
+		Get(int) (*models.User, error)
+	}
 }
 
 func main() {
@@ -67,6 +81,7 @@ func main() {
 	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
 	session.Secure = true
+	session.SameSite = http.SameSiteStrictMode
 
 	app := &application{
 		errorLog:      errorLog,
@@ -74,6 +89,7 @@ func main() {
 		session:       session,
 		snippets:      &sqlite.SnippetModel{DB: db},
 		templateCache: templateCache,
+		users:         &sqlite.UserModel{DB: db},
 	}
 
 	tlsConfig := &tls.Config{
